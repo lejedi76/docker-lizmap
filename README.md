@@ -1,4 +1,4 @@
-[![Try in PWD](https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/lejedi76/docker-lizmap/master/docker-compose.yml)
+[![Try in PWD](https://cdn.rawgit.com/play-with-docker/stacks/cff22438/assets/images/button.png)](http://play-with-docker.com?stack=https://raw.githubusercontent.com/lejedi76/docker-lizmap/without-portainer/docker-compose.yml)
 
 docker-lizmap 
 =============
@@ -16,7 +16,7 @@ With Docker-compose:
 
 * Create a docker-compose.yml and changing the directory path if necessary (home/lizmap/lizmap_project):
 
-https://github.com/jancelin/docker-lizmap/blob/master/docker-compose.yml
+https://github.com/jancelin/docker-lizmap/blob/without-portainer/docker-compose.yml
 
 * UP
 
