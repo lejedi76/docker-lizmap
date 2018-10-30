@@ -69,13 +69,13 @@ services:
      - portainer:/data
      
   cloud:
-    image: coderaiser/cloudcmd
+    image: owncloud
     restart: always
     ports:
-      - 8000:8000
+      - 8000:80
     volumes:
 #      - ~:/root
-      - project:/mnt/fs
+      - project:/var/www/html/data
      
 volumes:
    portainer:
