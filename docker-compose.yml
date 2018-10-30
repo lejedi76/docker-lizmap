@@ -9,6 +9,7 @@ services:
     volumes:
      - project:/home
      - var:/var/www/websig/lizmap/var
+     - owncloud:/home/owcloud
     depends_on:
       - postgis
       - qgiserver
@@ -16,7 +17,7 @@ services:
     links:
      - qgiserver:qgiserver
      - redis:redis
-     
+
   qgiserver:
     image: jancelin/qgis-server:2.18LTR
     restart: on-failure
@@ -24,7 +25,7 @@ services:
       - project:/home
     expose:
       - 80
-      
+
   redis:
     image: redis:alpine
     restart: on-failure
@@ -50,7 +51,7 @@ services:
       - POSTGRES_DUMP=geopoppy.sql
     volumes:
       - postgres:/var/lib/postgresql
-      
+
   pgadmin4:
     image: chorss/docker-pgadmin4
     restart: on-failure
@@ -58,16 +59,16 @@ services:
       - 5050:5050
     volumes:
       - pgadmin4:/data
-      
-  portainer:
-    image: portainer/portainer
-    restart: always
-    ports:
-     - 9000:9000
-    volumes:
-     - /var/run/docker.sock:/var/run/docker.sock
-     - portainer:/data
-     
+
+  # portainer:
+  #   image: portainer/portainer
+  #   restart: always
+  #   ports:
+  #    - 9000:9000
+  #   volumes:
+  #    - /var/run/docker.sock:/var/run/docker.sock
+  #    - portainer:/data
+
   cloud:
     image: owncloud
     restart: always
@@ -75,12 +76,13 @@ services:
       - 8000:80
     volumes:
 #      - ~:/root
-      - project:/var/www/html/data
-     
+      - owncloud:/var/www/html/data
+
 volumes:
-   portainer:
+  #  portainer:
    pgadmin4:
    postgres:
    redis:
    var:
    project:
+   owncloud:
