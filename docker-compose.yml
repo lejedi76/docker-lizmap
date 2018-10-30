@@ -60,26 +60,15 @@ services:
     volumes:
       - pgadmin4:/data
 
-  # portainer:
-  #   image: portainer/portainer
-  #   restart: always
-  #   ports:
-  #    - 9000:9000
-  #   volumes:
-  #    - /var/run/docker.sock:/var/run/docker.sock
-  #    - portainer:/data
-
   cloud:
     image: owncloud
     restart: always
     ports:
       - 8000:80
     volumes:
-#      - ~:/root
       - owncloud:/var/www/html/data
 
 volumes:
-  #  portainer:
    pgadmin4:
    postgres:
    redis:
